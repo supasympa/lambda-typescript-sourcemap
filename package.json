@@ -6,6 +6,8 @@
   "scripts": {
     "build": "tsc",
     "test": "ts-node -e 'require(\"./src/Service.ts\").Service.invoke({throwError:false})'",
+    "package": "webpack --config ./webpack.config.js",
+    "test-package": "node -e 'require(\"./dist/index\").handler({throwError:true}).then().catch(console.log);'",
     "prestart": "npm build",
     "start": "node -e 'require(\"./handler\").handler({throwError:true}).then().catch(console.log);'"
   },
@@ -20,10 +22,14 @@
   },
   "homepage": "https://github.com/supasympa/lambda-typescript-sourcemap#readme",
   "devDependencies": {
-    "@types/node": "^10.12.2",
-    "mocha": "^5.2.0",
-    "ts-node": "^7.0.1",
-    "typescript": "^3.1.6"
+    "@types/node": "10.12.2",
+    "mocha": "5.2.0",
+    "source-map-loader": "0.2.4",
+    "ts-node": "7.0.1",
+    "typescript": "3.1.6",
+    "webpack": "4.25.0",
+    "webpack-cli": "^3.1.2",
+    "webpack-node-externals": "1.7.2"
   },
   "dependencies": {
     "source-map-support": "^0.5.9"

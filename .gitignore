@@ -61,6 +61,6 @@ typings/
 .next
 
 .idea
-.lib
-.target
-.dist
+lib
+target
+dist/
