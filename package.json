@@ -1,0 +1,31 @@
+{
+  "name": "lambda-typescript-sourcemap",
+  "version": "1.0.0",
+  "description": "A package to demonstrate AWS Lambda Typescript sourmaps",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "ts-node -e 'require(\"./src/Service.ts\").Service.invoke({throwError:false})'",
+    "prestart": "npm build",
+    "start": "node -e 'require(\"./handler\").handler({throwError:true}).then().catch(console.log);'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/supasympa/lambda-typescript-sourcemap.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/supasympa/lambda-typescript-sourcemap/issues"
+  },
+  "homepage": "https://github.com/supasympa/lambda-typescript-sourcemap#readme",
+  "devDependencies": {
+    "@types/node": "^10.12.2",
+    "mocha": "^5.2.0",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.1.6"
+  },
+  "dependencies": {
+    "source-map-support": "^0.5.9"
+  }
+}
