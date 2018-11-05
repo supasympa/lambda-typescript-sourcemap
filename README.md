@@ -1,2 +1,2 @@
 # lambda-typescript-sourcemap
-Demonstrate typescript source maps in AWS Lambda functions
+Demonstrate TypeScript source maps in AWS Lambda functions
