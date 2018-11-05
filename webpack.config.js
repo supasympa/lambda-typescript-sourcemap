@@ -1,11 +1,6 @@
 const path = require('path');
-// const webpack = require('webpack');
-const nodeExternals = require('webpack-node-externals');
-
-// const debug = process.env.NODE_ENV !== 'production';
-
 module.exports = {
-    mode: 'development',
+    mode: 'production',
     context: __dirname,
     entry: './handler.js',
     output: {
@@ -24,12 +19,5 @@ module.exports = {
         ]
     },
     target: 'node',
-    // externals: [ nodeExternals() ],
     devtool: "source-map",
-    plugins: [
-        // new webpack.optimize.UglifyJsPlugin({
-        //     mangle: !debug,
-        //     sourcemap: true
-        // }),
-    ],
 };

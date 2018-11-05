@@ -5,18 +5,15 @@
   "main": "index.js",
   "scripts": {
     "clean": "rm -rf ./dist & rm -rf ./lib & rm -rf ./target",
+    "prebuild" : "npm run clean",
     "build": "tsc",
-
     "test": "ts-node -e 'require(\"./src/Service.ts\").Service.invoke({throwError:false})'",
-
     "package": "webpack --config ./webpack.config.js",
     "postpackage": "mkdir -p ./target && zip -Xjrq target/lambda.zip ./package.json ./package-lock.json ./dist/**",
-
     "test-package": "node -e 'require(\"./dist/index\").handler({throwError:true}).then().catch(console.log);'",
-
     "prestart": "npm build",
     "start": "node -e 'require(\"./handler\").handler({throwError:true}).then().catch(console.log);'",
-
+    "predeploy": "npm run build && npm run package",
     "deploy": "aws lambda update-function-code --function-name typeScriptSourceMaps --zip-file fileb://$(pwd)/target/lambda.zip --publish"
   },
   "repository": {
