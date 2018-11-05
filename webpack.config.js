@@ -24,7 +24,7 @@ module.exports = {
         ]
     },
     target: 'node',
-    externals: [ nodeExternals() ],
+    // externals: [ nodeExternals() ],
     devtool: "source-map",
     plugins: [
         // new webpack.optimize.UglifyJsPlugin({
